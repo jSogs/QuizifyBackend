@@ -241,4 +241,4 @@ io.on("connection", (socket) => {
   // 🔹 Utility Functions
   const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-server.listen(4000, '0.0.0.0' ,() => console.log("Server running on port 4000"));
+server.listen(4000, process.env.PORT ,() => console.log("Server running on port 4000"));
