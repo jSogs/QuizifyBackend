@@ -24,7 +24,6 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 
 //Login route
 app.get("/login", (req, res) => {
-  console.log("gimmick");
   const scope = "user-top-read user-read-recently-played";
   const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${CLIENT_ID}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&show_dialog=true`;
   res.redirect(authUrl);    
@@ -48,7 +47,7 @@ app.get("/callback", async (req, res) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     });
 
-    res.redirect(`http://quizifyfrontend.onrender.com/?access_token=${response.data.access_token}`);
+    res.redirect(`https://quizifyfrontend.onrender.com/?access_token=${response.data.access_token}`);
   } catch (error) {
     res.status(400).json({ error: error.response.data });
   }
