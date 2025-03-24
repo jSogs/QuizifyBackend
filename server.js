@@ -47,7 +47,7 @@ app.get("/callback", async (req, res) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     });
 
-    res.redirect(`http://quizifyfrontend.com/?access_token=${response.data.access_token}`);
+    res.redirect(`http://quizifyfrontend.onrender.com/?access_token=${response.data.access_token}`);
   } catch (error) {
     res.status(400).json({ error: error.response.data });
   }
