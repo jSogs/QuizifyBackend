@@ -47,7 +47,7 @@ app.get("/callback", async (req, res) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     });
 
-    res.redirect(`http://192.168.1.93:3000/?access_token=${response.data.access_token}`);
+    res.redirect(`http://localhost:3000/?access_token=${response.data.access_token}`);
   } catch (error) {
     res.status(400).json({ error: error.response.data });
   }
@@ -241,4 +241,4 @@ io.on("connection", (socket) => {
   // 🔹 Utility Functions
   const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-server.listen(4000, process.env.PORT ,() => console.log("Server running on port 4000"));
+server.listen(process.env.PORT || 4000, '0.0.0.0' ,() => console.log("Server running on port 4000"));
